@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             template="template.xhtml">
+    <h:body>
+         <h:form>
+              <p:messages autoUpdate="true" showDetail="true"></p:messages>
+
+              <p:fieldset legend="Depositar" >
+                <h:panelGrid columns="1" style="margin-left: 35%">
+                
+                <p:outputLabel value="Número da Conta" />
+                <p:inputText value="#{contaBean.movConta.numeroDaConta}" maxlength="8" required="true" requiredMessage="O campo NÚMERO DA CONTA precisa ser preenchido." style="width: 300px"/>
+                
+                <p:outputLabel value="Valor do Depósito" />
+                <p:inputText value="#{contaBean.movConta.valor}" maxlength="15"  requiredMessage="O campo VALOR DO DEPÓSITO precisa ser preenchido." required="true" style="width: 300px"/>
+                
+                <p:outputLabel value="Tipo de Movimentação" /> 
+                <p:selectOneMenu value="#{contaBean.movConta.tipoMovimentacao}" required="true"  requiredMessage="O campo TIPO DE MOVIMENTAÇÃO precisa ser preenchido." >
+                        <f:selectItem itemLabel="Selecione um tipo de movimentação " itemValue="" noSelectionOption="true"/>
+                        <f:selectItem itemLabel="Crédito" itemValue="Credito"  />
+                        <f:selectItem itemLabel="Débito" itemValue="Debito"  />
+                 </p:selectOneMenu>
+                                    
+            </h:panelGrid>  
+                  <br/><br/><br/>
+             <h:panelGrid columns="1">
+                  <p:commandButton value="Depositar" action="#{contaBean.btDeposito()}" update="@form" style="margin-left: 97%;width: 430px; "  />
+               
+            </h:panelGrid>
+           </p:fieldset>
+              
+            
+        </h:form>
+    </h:body>
+</ui:decorate>

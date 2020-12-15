@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml">
+   
+    <h:body>
+         <h:form>
+              <p:messages autoUpdate="true" showDetail="true"></p:messages>
+
+              <p:fieldset legend="Consultar Dados da Conta" >
+            <h:panelGrid columns="3">
+               
+                 <p:outputLabel value="Digite o número da conta" />
+                 <p:inputText value="#{contaBean.conta.numero}" maxlength="150" required="true" style="width: 300px" requiredMessage="É obrigatório o preenchimento do campo: Número da Conta"/>
+                <p:commandButton value="Acessar conta corrente" action="#{contaBean.btBuscarDados()}" update="@form" style="width: 400px;"  />
+               <br/>
+               <br/>
+            </h:panelGrid>
+                  
+
+
+            <h:panelGrid columns="2" style="margin-left: 35%">
+                <p:outputLabel value="Cliente" /><br/>
+                <p:inputText   maxlength="200" style="width: 400px;" value="#{contaBean.conta.cliente}" disabled="true"/>
+                   <br/>
+                <p:outputLabel value="Saldo" /><br/>
+                <p:inputText value="#{contaBean.conta.saldo}" maxlength="150" style="width: 400px;" disabled="true" />
+                 <br/>
+                <p:outputLabel value="Limite"  /><br/>
+                <p:inputText maxlength="200" value="#{contaBean.conta.limite}" style="width: 400px;" disabled="true"/>
+              
+            </h:panelGrid>
+                  
+                   
+           </p:fieldset>
+
+              
+            
+              
+             
+        </h:form>
+    </h:body>
+</ui:decorate>

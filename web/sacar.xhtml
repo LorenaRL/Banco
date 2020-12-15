@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml">
+   
+    <h:body>
+         <h:form>
+              <p:messages autoUpdate="true" showDetail="true"></p:messages>
+
+           <p:fieldset legend="Sacar" >
+            <h:panelGrid columns="1" style="margin-left: 35%">
+               
+                 <p:outputLabel value="Número da Conta" />
+                <p:inputText value="#{contaBean.movConta.numeroDaConta}" maxlength="150" required="true" style="width: 300px"  requiredMessage="O campo NÚMERO DA CONTA precisa ser preenchido."/>
+                
+                <p:outputLabel value="Sacar o Valor" />
+                <p:inputText value="#{contaBean.movConta.valor}" maxlength="150" required="true" style="width: 300px" requiredMessage="O campo SACAR O VALOR  precisa ser preenchido."/>
+                
+            </h:panelGrid>   
+                <h:panelGrid columns="1" style="margin-left: 15%">
+                  <p:commandButton value="SACAR" action="#{contaBean.btSacar()}" update="@form" style="margin-left: 300px;width: 200px;" />
+               
+                </h:panelGrid>
+           </p:fieldset>
+              
+             
+        </h:form>
+    </h:body>
+</ui:decorate>
